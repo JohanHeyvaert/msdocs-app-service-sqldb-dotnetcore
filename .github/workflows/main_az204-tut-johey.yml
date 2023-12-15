@@ -53,9 +53,9 @@ jobs:
         with:
           name: .net-app
       
-      - name: Run DB migration
-        working-directory: ./home/site/wwwroot/
-        run: ./migrate
+      # - name: Run DB migration
+      #   working-directory: ./home/site/wwwroot/
+      #   run: ./migrate
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
