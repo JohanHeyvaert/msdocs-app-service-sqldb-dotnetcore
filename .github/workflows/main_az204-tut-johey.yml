@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - az204-tut-johey
+name: Build and deploy ASP.Net Core app to Azure Web App - msdocs-johey
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Update database
-        run: dotnet ef database update -c MyDatabaseContext -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj
+        run: dotnet ef database update -c MyDatabaseContext -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj --connection "Data Source=msdocs-johey-server.database.windows.net,1433;Initial Catalog=msdocs-johey-database;User ID=msdocs-johey-server-admin;Password=G266Z03WPJZ0GSG8$""
         # env:
         #   ASPNETCORE_ENVIRONMENT: Development
 
@@ -58,10 +58,6 @@ jobs:
         with:
           name: .net-app
       
-      # - name: Run DB migration
-      #   working-directory: ./home/site/wwwroot/
-      #   run: ./migrate
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -69,4 +65,4 @@ jobs:
           app-name: 'msdocs-johey'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0E364815D2CE406FB4733FD26183C9D4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2AA546C632424D9DAAA445573E09EBF5 }}
