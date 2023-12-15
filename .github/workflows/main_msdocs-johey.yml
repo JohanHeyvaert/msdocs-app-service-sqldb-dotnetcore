@@ -35,7 +35,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Update database
-        run: dotnet ef database update -c MyDatabaseContext -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj
+        run: dotnet ef database update -c MyDatabaseContext -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj --connection "Data Source=msdocs-johey-server.database.windows.net,1433;Initial Catalog=msdocs-johey-database;User ID=msdocs-johey-server-admin;Password=G266Z03WPJZ0GSG8$""
         # env:
         #   ASPNETCORE_ENVIRONMENT: Development
 
